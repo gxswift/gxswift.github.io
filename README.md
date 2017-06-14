@@ -1,2 +1,2 @@
 # gx853129649.github.io
-MY
+今天开始练习使用github
