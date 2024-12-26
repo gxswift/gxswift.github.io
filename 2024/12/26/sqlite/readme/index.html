@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>sqlite |  Hexo</title>
+      <title>sqlite |  Blog</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -75,14 +75,14 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2024/12/25/sqlite/readme/" class="article-date">
-  <time datetime="2024-12-25T12:13:45.794Z" itemprop="datePublished">2024-12-25</time>
+      <a href="/2024/12/26/sqlite/readme/" class="article-date">
+  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">2024-12-26</time>
 </a>   
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
-            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-meta-item-text"> 字数统计:</span>
             <span class="post-count">3.7k</span>
         </span>
     </span>
@@ -91,8 +91,8 @@
         &nbsp; | &nbsp;
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
-            <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">17 min</span>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">17 分钟</span>
         </span>
     </span>
 </div>
@@ -107,7 +107,7 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h2><p><a target="_blank" rel="noopener" href="https://www.sqlite.org/download.html">SQLite3</a></p>
+  <h1 id="Sqlite"><a href="#Sqlite" class="headerlink" title="Sqlite"></a>Sqlite</h1><h2 id="下载链接"><a href="#下载链接" class="headerlink" title="下载链接"></a>下载链接</h2><p><a target="_blank" rel="noopener" href="https://www.sqlite.org/download.html">SQLite3</a></p>
 <h2 id="C-C-接口-API"><a href="#C-C-接口-API" class="headerlink" title="C&#x2F;C++ 接口 API"></a>C&#x2F;C++ 接口 API</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlite3_open(const char *filename, sqlite3 **ppDb)</span><br></pre></td></tr></table></figure>
 <p>该例程打开一个指向 SQLite 数据库文件的连接，返回一个用于其他 SQLite 程序的数据库连接对象。如果 filename 参数是 NULL 或 ‘:memory:’，那么 sqlite3_open() 将会在 RAM 中创建一个内存数据库，这只会在 session 的有效时间内持续。如果文件名 filename 不为 NULL，那么 sqlite3_open() 将使用这个参数值尝试打开数据库文件。如果该名称的文件不存在，sqlite3_open() 将创建一个新的命名为该名称的数据库文件并打开。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlite3_exec(sqlite3*, const char *sql, sqlite_callback, void *data, char **errmsg)</span><br></pre></td></tr></table></figure>
@@ -296,67 +296,20 @@ Operation done successfully
 
     <!-- copyright -->
     
-    <div class="declare">
+    <!-- <div class="declare">
       <ul class="post-copyright">
         <li>
           <i class="ri-copyright-line"></i>
-          <strong>Copyright： </strong>
+          <strong>版权声明： </strong>
           
-          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
           
         </li>
       </ul>
-    </div>
+    </div> -->
     
     <footer class="article-footer">
        
-<div class="share-btn">
-      <span class="share-sns share-outer">
-        <i class="ri-share-forward-line"></i>
-        分享
-      </span>
-      <div class="share-wrap">
-        <i class="arrow"></i>
-        <div class="share-icons">
-          
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="ri-weibo-fill"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="ri-wechat-fill"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="ri-qq-fill"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="ri-douban-line"></i>
-          </a>
-          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a> -->
-          
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="ri-facebook-circle-fill"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="ri-twitter-fill"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="ri-google-fill"></i>
-          </a>
-        </div>
-      </div>
-</div>
-
-<div class="wx-share-modal">
-    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2024/12/25/sqlite/readme/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div id="share-mask"></div>  
     </footer>
   </div>
 
@@ -372,11 +325,6 @@ Operation done successfully
         </div>
       </a>
     
-    
-      <a href="/2024/12/25/hello-world/" class="article-nav-link">
-        <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Hello World</div>
-      </a>
     
   </nav>
 
@@ -406,9 +354,9 @@ Operation done successfully
         
         
         <span>
-  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
   <span class="division">|</span>
-  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
 </span>
         
       </li>
@@ -442,6 +390,10 @@ Operation done successfully
       <button class="navbar-toggle"></button>
 <nav class="navbar">
   
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="Blog"></a>
+  </div>
+  
   <ul class="nav nav-main">
     
     <li class="nav-item">
@@ -461,7 +413,7 @@ Operation done successfully
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/2019/about">关于我</a>
+      <a class="nav-item-link" href="/me">关于我</a>
     </li>
     
   </ul>
@@ -470,7 +422,7 @@ Operation done successfully
   <ul class="nav">
     <li class="nav-item">
       
-      <a class="nav-item-link nav-item-search"  title="Search">
+      <a class="nav-item-link nav-item-search"  title="搜索">
         <i class="ri-search-line"></i>
       </a>
       
