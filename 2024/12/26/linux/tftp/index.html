@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">251</span>
+            <span class="post-count">253</span>
         </span>
     </span>
 
@@ -111,17 +111,13 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="NFS"><a href="#NFS" class="headerlink" title="NFS"></a>NFS</h2><p>安装NFS软件包</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nfs-kernel-server	#安装服务器</span><br><span class="line">sudo apt-get install nfs-common		#安装客户端</span><br></pre></td></tr></table></figure>
-<p>添加共享目录</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/exports	#打开文件</span><br><span class="line">/nfsroot *(rw,sync,no_root_squash)#将/nfsroot 目录设置为NFS共享目录 ，*代表允许任意IP访问</span><br></pre></td></tr></table></figure>
-<p>建立文件夹，设置权限</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /nfsroot</span><br><span class="line">sudo chmod -R 777 /nfsroot</span><br><span class="line">sudo chown -R nobody /nfsroot</span><br></pre></td></tr></table></figure>
-<p>启动NFS服务</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nfs-kernel-server start #重启restart</span><br></pre></td></tr></table></figure>
-<p>客户端挂载</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t nfs 192.168.123.123:/nfs /mnt -o nolock</span><br></pre></td></tr></table></figure>
-
+  <h2 id="NFS"><a href="#NFS" class="headerlink" title="NFS"></a>NFS</h2><ol>
+<li>安装NFS软件包<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nfs-kernel-server	#安装服务器</span><br><span class="line">sudo apt-get install nfs-common		#安装客户端</span><br></pre></td></tr></table></figure></li>
+<li>添加共享目录<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/exports	#打开文件</span><br><span class="line">/nfsroot *(rw,sync,no_root_squash)#将/nfsroot 目录设置为NFS共享目录 ，*代表允许任意IP访问</span><br></pre></td></tr></table></figure></li>
+<li>建立文件夹，设置权限<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /nfsroot</span><br><span class="line">sudo chmod -R 777 /nfsroot</span><br><span class="line">sudo chown -R nobody /nfsroot</span><br></pre></td></tr></table></figure></li>
+<li>启动NFS服务<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nfs-kernel-server start #重启restart</span><br></pre></td></tr></table></figure></li>
+<li>客户端挂载<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t nfs -o vers=4 192.168.123.123:/nfs /mnt -o nolock</span><br></pre></td></tr></table></figure></li>
+</ol>
 <h2 id="TFTP"><a href="#TFTP" class="headerlink" title="TFTP"></a>TFTP</h2><h3 id="tftpd或xinetd"><a href="#tftpd或xinetd" class="headerlink" title="tftpd或xinetd"></a>tftpd或xinetd</h3><ol>
 <li>安装软件包<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install tftpd-hpa tftp-hpa	<span class="comment">#安装服务器和客户端</span></span><br></pre></td></tr></table></figure></li>
 <li>配置<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> vi /etc/default/tftp-hpa	<span class="comment">#打开文件</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> vi /etc/xinetd.d/tftp</span><br><span class="line">service tftp</span><br><span class="line">&#123;</span><br><span class="line">    socket_type = dgram</span><br><span class="line">    protocol = udp</span><br><span class="line">    <span class="built_in">wait</span> = <span class="built_in">yes</span></span><br><span class="line">    user = root</span><br><span class="line">    server = /usr/sbin/in.tftpd</span><br><span class="line">    server_args = -s /tftpboot</span><br><span class="line">    <span class="built_in">disable</span> = no</span><br><span class="line">    per_source = 11</span><br><span class="line">    cps = 100 2</span><br><span class="line">    flags = IPv4</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
@@ -159,19 +155,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2024/12/26/linux/vim/" class="article-nav-link">
+      <a href="/2024/12/26/linux/ssh/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            VIM
+            ssh和git
           
         </div>
       </a>
     
     
-      <a href="/2024/12/26/linux/zdyz/" class="article-nav-link">
+      <a href="/2024/12/26/linux/think/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">i.mx6ull开发板</div>
+        <div class="article-nav-title">思考</div>
       </a>
     
   </nav>
