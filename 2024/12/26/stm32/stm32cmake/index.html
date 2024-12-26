@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+
+
+<html lang="zh">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>stm32 cmake |  gx的博客</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-stm32/stm32cmake"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  stm32 cmake
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/12/26/stm32/stm32cmake/" class="article-date">
+  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">2024-12-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/stm32/">stm32</a> / <a class="article-category-link" href="/categories/stm32/CMake/">CMake</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">6 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="STM32-CMAKE"><a href="#STM32-CMAKE" class="headerlink" title="STM32 CMAKE"></a>STM32 CMAKE</h1><h2 id="FILE"><a href="#FILE" class="headerlink" title="FILE"></a>FILE</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.22</span>)</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># This file is generated only once,</span></span><br><span class="line"><span class="comment"># and is not re-generated if converter is called multiple times.</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># User is free to modify the file as much as necessary</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Setup compiler settings</span></span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_STANDARD <span class="number">11</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_STANDARD_REQUIRED <span class="keyword">ON</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_EXTENSIONS <span class="keyword">ON</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Define the build type</span></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">NOT</span> CMAKE_BUILD_TYPE)</span><br><span class="line">    <span class="keyword">set</span>(CMAKE_BUILD_TYPE <span class="string">&quot;Debug&quot;</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the project name</span></span><br><span class="line"><span class="keyword">set</span>(CMAKE_PROJECT_NAME test2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Include toolchain file</span></span><br><span class="line"><span class="keyword">set</span>(CMAKE_SYSTEM_NAME               Generic)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_SYSTEM_PROCESSOR          arm)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER_FORCED <span class="keyword">TRUE</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_COMPILER_FORCED <span class="keyword">TRUE</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER_ID GNU)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_COMPILER_ID GNU)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Some default GCC settings</span></span><br><span class="line"><span class="comment"># arm-none-eabi- must be part of path environment</span></span><br><span class="line"><span class="keyword">set</span>(TOOLCHAIN_PREFIX                arm-none-eabi-)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_COMPILER                <span class="variable">$&#123;TOOLCHAIN_PREFIX&#125;</span>gcc)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_ASM_COMPILER              <span class="variable">$&#123;CMAKE_C_COMPILER&#125;</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_COMPILER              <span class="variable">$&#123;TOOLCHAIN_PREFIX&#125;</span>g++)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_LINKER                    <span class="variable">$&#123;TOOLCHAIN_PREFIX&#125;</span>g++)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_OBJCOPY                   <span class="variable">$&#123;TOOLCHAIN_PREFIX&#125;</span>objcopy)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_SIZE                      <span class="variable">$&#123;TOOLCHAIN_PREFIX&#125;</span>size)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_EXECUTABLE_SUFFIX_ASM     <span class="string">&quot;.elf&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_EXECUTABLE_SUFFIX_C       <span class="string">&quot;.elf&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_EXECUTABLE_SUFFIX_CXX     <span class="string">&quot;.elf&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)</span><br><span class="line"><span class="keyword">set</span>(LDSCRIPT STM32F103RCTx_FLASH.ld)</span><br><span class="line"><span class="comment"># MCU specific flags</span></span><br><span class="line"><span class="keyword">set</span>(TARGET_FLAGS <span class="string">&quot;-mcpu=cortex-m3 &quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_FLAGS <span class="string">&quot;$&#123;CMAKE_C_FLAGS&#125; $&#123;TARGET_FLAGS&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_FLAGS <span class="string">&quot;$&#123;CMAKE_C_FLAGS&#125; -Wall -Wextra -Wpedantic -fdata-sections -ffunction-sections&quot;</span>)</span><br><span class="line"><span class="keyword">if</span>(CMAKE_BUILD_TYPE <span class="keyword">MATCHES</span> Debug)</span><br><span class="line">    <span class="keyword">set</span>(CMAKE_C_FLAGS <span class="string">&quot;$&#123;CMAKE_C_FLAGS&#125; -O0 -g3&quot;</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"><span class="keyword">if</span>(CMAKE_BUILD_TYPE <span class="keyword">MATCHES</span> Release)</span><br><span class="line">    <span class="keyword">set</span>(CMAKE_C_FLAGS <span class="string">&quot;$&#123;CMAKE_C_FLAGS&#125; -Os -g0&quot;</span>)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_ASM_FLAGS <span class="string">&quot;$&#123;CMAKE_C_FLAGS&#125; -x assembler-with-cpp -MMD -MP&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_FLAGS <span class="string">&quot;$&#123;CMAKE_C_FLAGS&#125; -fno-rtti -fno-exceptions -fno-threadsafe-statics&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_LINK_FLAGS <span class="string">&quot;$&#123;TARGET_FLAGS&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_LINK_FLAGS <span class="string">&quot;$&#123;CMAKE_C_LINK_FLAGS&#125; -T $&#123;CMAKE_SOURCE_DIR&#125;/$&#123;LDSCRIPT&#125;&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_LINK_FLAGS <span class="string">&quot;$&#123;CMAKE_C_LINK_FLAGS&#125; --specs=nano.specs&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_LINK_FLAGS <span class="string">&quot;$&#123;CMAKE_C_LINK_FLAGS&#125; -Wl,-Map=$&#123;CMAKE_PROJECT_NAME&#125;.map -Wl,--gc-sections&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_LINK_FLAGS <span class="string">&quot;$&#123;CMAKE_C_LINK_FLAGS&#125; -Wl,--start-group -lc -lm -Wl,--end-group&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_C_LINK_FLAGS <span class="string">&quot;$&#123;CMAKE_C_LINK_FLAGS&#125; -Wl,--print-memory-usage&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_LINK_FLAGS <span class="string">&quot;$&#123;CMAKE_C_LINK_FLAGS&#125; -Wl,--start-group -lstdc++ -lsupc++ -Wl,--end-group&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable compile command to ease indexing with e.g. clangd</span></span><br><span class="line"><span class="keyword">set</span>(CMAKE_EXPORT_COMPILE_COMMANDS <span class="keyword">TRUE</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Core project settings</span></span><br><span class="line"><span class="keyword">project</span>(<span class="variable">$&#123;CMAKE_PROJECT_NAME&#125;</span>)</span><br><span class="line"><span class="keyword">message</span>(<span class="string">&quot;Build type: &quot;</span> <span class="variable">$&#123;CMAKE_BUILD_TYPE&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable CMake support for ASM and C languages</span></span><br><span class="line"><span class="keyword">enable_language</span>(C ASM)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create an executable object type</span></span><br><span class="line"><span class="keyword">add_executable</span>(<span class="variable">$&#123;CMAKE_PROJECT_NAME&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add STM32CubeMX generated sources</span></span><br><span class="line"><span class="comment"># add_subdirectory(cmake/stm32cubemx)</span></span><br><span class="line"><span class="keyword">add_custom_command</span>(</span><br><span class="line">    <span class="keyword">TARGET</span>  <span class="variable">$&#123;CMAKE_PROJECT_NAME&#125;</span></span><br><span class="line">    <span class="keyword">COMMAND</span> <span class="variable">$&#123;CMAKE_OBJCOPY&#125;</span> -O binary -S <span class="variable">$&#123;CMAKE_PROJECT_NAME&#125;</span>.elf <span class="variable">$&#123;CMAKE_PROJECT_NAME&#125;</span>.bin</span><br><span class="line">    <span class="keyword">COMMAND</span> <span class="variable">$&#123;CMAKE_OBJCOPY&#125;</span> -O ihex <span class="variable">$&#123;CMAKE_PROJECT_NAME&#125;</span>.elf <span class="variable">$&#123;CMAKE_PROJECT_NAME&#125;</span>.hex</span><br><span class="line">    )</span><br><span class="line"><span class="comment"># Link directories setup</span></span><br><span class="line"><span class="keyword">target_link_directories</span>(<span class="variable">$&#123;CMAKE_PROJECT_NAME&#125;</span> PRIVATE</span><br><span class="line">    <span class="comment"># Add user defined library search paths</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add sources to executable</span></span><br><span class="line"><span class="keyword">target_sources</span>(<span class="variable">$&#123;CMAKE_PROJECT_NAME&#125;</span> PRIVATE</span><br><span class="line">    <span class="comment"># Add user sources here</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add include paths</span></span><br><span class="line"><span class="keyword">target_include_directories</span>(<span class="variable">$&#123;CMAKE_PROJECT_NAME&#125;</span> PRIVATE</span><br><span class="line">    <span class="comment"># Add user defined include paths</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add project symbols (macros)</span></span><br><span class="line"><span class="keyword">target_compile_definitions</span>(<span class="variable">$&#123;CMAKE_PROJECT_NAME&#125;</span> PRIVATE</span><br><span class="line">    <span class="comment"># Add user defined symbols</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add linked libraries</span></span><br><span class="line"><span class="keyword">target_link_libraries</span>(<span class="variable">$&#123;CMAKE_PROJECT_NAME&#125;</span></span><br><span class="line">    stm32cubemx</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Add user defined libraries</span></span><br><span class="line">)</span><br><span class="line"><span class="comment"># --------------------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># 创建接口库</span></span><br><span class="line"><span class="comment"># project(stm32cubemx)</span></span><br><span class="line"><span class="keyword">add_library</span>(stm32cubemx INTERFACE)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_compile_definitions</span>(stm32cubemx INTERFACE </span><br><span class="line">	USE_HAL_DRIVER </span><br><span class="line">	STM32F103xE</span><br><span class="line">    $&lt;$&lt;CONFIG:Debug&gt;:DEBUG&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_include_directories</span>(stm32cubemx INTERFACE</span><br><span class="line">    Core/Inc</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Inc</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Inc/Legacy</span><br><span class="line">    Drivers/CMSIS/Device/ST/STM32F1xx/<span class="keyword">Include</span></span><br><span class="line">    Drivers/CMSIS/<span class="keyword">Include</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_sources</span>(stm32cubemx INTERFACE</span><br><span class="line">    Core/Src/main.c</span><br><span class="line">    Core/Src/stm32f1xx_it.c</span><br><span class="line">    Core/Src/stm32f1xx_hal_msp.c</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c</span><br><span class="line">    Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c</span><br><span class="line">    Core/Src/system_stm32f1xx.c</span><br><span class="line">    Core/Src/sysmem.c</span><br><span class="line">    Core/Src/syscalls.c</span><br><span class="line">    startup_stm32f103xe.s</span><br><span class="line">)</span><br><span class="line"><span class="comment"># enable_language(C ASM)</span></span><br><span class="line"><span class="comment"># project(lib)</span></span><br><span class="line"><span class="comment"># ----------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># 生成静态库</span></span><br><span class="line"><span class="keyword">set</span>(GENLIB <span class="number">0</span>)</span><br><span class="line"><span class="keyword">if</span>(GENLIB <span class="keyword">MATCHES</span> <span class="number">1</span>)</span><br><span class="line"><span class="keyword">add_library</span>(lib STATIC </span><br><span class="line">Core/Src/main.c</span><br><span class="line">Core/Src/stm32f1xx_it.c</span><br><span class="line">Core/Src/stm32f1xx_hal_msp.c</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio_ex.c</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.c</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.c</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc.c</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_rcc_ex.c</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.c</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_dma.c</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.c</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_pwr.c</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash.c</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_flash_ex.c</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_exti.c</span><br><span class="line">Core/Src/system_stm32f1xx.c</span><br><span class="line">Core/Src/sysmem.c</span><br><span class="line">Core/Src/syscalls.c</span><br><span class="line">startup_stm32f103xe.s</span><br><span class="line">)</span><br><span class="line"><span class="keyword">target_include_directories</span>(lib PUBLIC    </span><br><span class="line">Core/Inc</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Inc</span><br><span class="line">Drivers/STM32F1xx_HAL_Driver/Inc/Legacy</span><br><span class="line">Drivers/CMSIS/Device/ST/STM32F1xx/<span class="keyword">Include</span></span><br><span class="line">Drivers/CMSIS/<span class="keyword">Include</span>)</span><br><span class="line"><span class="keyword">target_compile_definitions</span>(lib PUBLIC</span><br><span class="line">	USE_HAL_DRIVER </span><br><span class="line">	STM32F103xE</span><br><span class="line">)</span><br><span class="line"><span class="keyword">endif</span>()</span><br><span class="line"><span class="comment"># ----------------------------------------------------------------</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h2><p>构建 编译</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cmake -B build -G <span class="string">&#x27;Ninja&#x27;</span></span><br><span class="line">cmake -B build -G <span class="string">&#x27;Unix Makefiles&#x27;</span></span><br><span class="line"></span><br><span class="line">cmake --build build</span><br></pre></td></tr></table></figure>
+
+<p>task.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span>  </span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2.0.0&quot;</span><span class="punctuation">,</span>  </span><br><span class="line">    <span class="attr">&quot;tasks&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ninja&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;shell&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cmake -B build -G &#x27;Ninja&#x27;;cmake --build build&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;group&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;kind&quot;</span><span class="punctuation">:</span> <span class="string">&quot;build&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;isDefault&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;build&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;shell&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cmake -B build -G &#x27;Unix Makefiles&#x27;;cmake --build build&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;group&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;kind&quot;</span><span class="punctuation">:</span> <span class="string">&quot;build&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;isDefault&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;clean&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;shell&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;command&quot;</span><span class="punctuation">:</span> <span class="string">&quot;rm -r build&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;problemMatcher&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;group&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">                <span class="attr">&quot;kind&quot;</span><span class="punctuation">:</span> <span class="string">&quot;build&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="attr">&quot;isDefault&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">            <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span>  </span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="提取commit到文件"><a href="#提取commit到文件" class="headerlink" title="提取commit到文件"></a>提取commit到文件</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">setlocal</span> enabledelayedexpansion</span><br><span class="line"> </span><br><span class="line">:: 获取当前路径</span><br><span class="line"><span class="built_in">set</span> CURRENT_DIR=<span class="variable">%cd%</span></span><br><span class="line"> </span><br><span class="line">:: 进入源代码目录</span><br><span class="line"><span class="built_in">cd</span> /d <span class="variable">%CURRENT_DIR%</span>\<span class="built_in">path</span>\to\your\source\code</span><br><span class="line"> </span><br><span class="line">:: 获取最新的commit号</span><br><span class="line"><span class="keyword">for</span> /f &quot;delims=#&quot; <span class="variable">%%a</span> <span class="keyword">in</span> (&#x27;git rev-parse --short HEAD&#x27;) <span class="keyword">do</span> @<span class="built_in">set</span> commit=<span class="variable">%%a</span></span><br><span class="line"> </span><br><span class="line">:: 将commit号写入version.h文件</span><br><span class="line"><span class="built_in">echo</span> #define COMMIT_HASH &quot;<span class="variable">%commit%</span>&quot; &gt; version.h</span><br><span class="line"> </span><br><span class="line">:: 退出源代码目录</span><br><span class="line"><span class="built_in">cd</span> /d <span class="variable">%CURRENT_DIR%</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">endlocal</span></span><br></pre></td></tr></table></figure>
+<p>完整的commit号（40位SHA-1）写入文件，可以使用以下命令替换</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rev-parse HEAD &gt; version.h</span><br></pre></td></tr></table></figure> 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <!-- <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div> -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CMake/" rel="tag">CMake</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2024/12/26/stm32/lwip/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            mqtt
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2024/12/26/windows/windows/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">windows 常用操作</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+    
+</article>
+
+</section>
+      <!-- <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2024
+        <i class="ri-heart-fill heart_icon"></i> GX
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>     -->
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="gx的博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/me">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
