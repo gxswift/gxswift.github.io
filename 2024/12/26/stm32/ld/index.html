@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>gitattributes |  gx的博客</title>
+      <title>链接文件 |  gx的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -56,7 +56,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-linux/gitattributes"
+  id="post-stm32/ld"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -67,7 +67,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  gitattributes
+  链接文件
 </h1>
  
 
@@ -75,15 +75,19 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2024/12/26/linux/gitattributes/" class="article-date">
+      <a href="/2024/12/26/stm32/ld/" class="article-date">
   <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">2024-12-26</time>
-</a>   
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/stm32/">stm32</a>
+  </div>
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">795</span>
+            <span class="post-count">477</span>
         </span>
     </span>
 
@@ -92,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">1 分钟</span>
         </span>
     </span>
 </div>
@@ -107,48 +111,25 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="gitattributes基本用法"><a href="#gitattributes基本用法" class="headerlink" title=".gitattributes基本用法"></a>.gitattributes基本用法</h2><ul>
-<li>1.设置行尾字符：</li>
+  <h1 id="链接文件"><a href="#链接文件" class="headerlink" title="链接文件"></a>链接文件</h1><p>test.c编译放入特定位置</p>
+<figure class="highlight plaintext"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.ccmram :</span><br><span class="line">&#123;</span><br><span class="line">  . = ALIGN(4);</span><br><span class="line">  _sccmram = .;       /* create a global symbol at ccmram start */</span><br><span class="line">  *(.ccmram)</span><br><span class="line">  *(.ccmram*)</span><br><span class="line">  *test.o(*.bss* *.data*)/*编译的结果*/</span><br><span class="line">  . = ALIGN(4);</span><br><span class="line">  _eccmram = .;       /* create a global symbol at ccmram end */</span><br><span class="line">&#125; &gt;CCMRAM AT&gt; FLASH</span><br></pre></td></tr></table></figure>
+<h2 id="hardfault-error"><a href="#hardfault-error" class="headerlink" title="hardfault error"></a>hardfault error</h2><p>确定使用的是那个堆栈，MSP或者是PSP，确定以后，在内存查看窗口，输入堆栈的地址，以这个地址开始的8个32位数值，应该依次是R0,R1,R2,R3,R12,R14,R15,XPSR的数值，据此判定你的堆栈地址是不是对的(有时需要考虑堆栈的增长方向)。R14，R15的地址就是我们出错的代码所在的地址，需要在这个地址基础上，首先偶数对齐，然后向上减去8个字节。</p>
+<p>需要考虑的是，在使用MSP的时候，有出错的地方并不一定在R14，R15处，而是在XPSR往后的第二个地址处，在这个附近查找，排除故障。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: 开始</span><br><span class="line">op=&gt;operation: My Operation</span><br><span class="line">cond=&gt;condition: Yes or No?</span><br><span class="line">e=&gt;end</span><br><span class="line">st-&gt;op-&gt;cond</span><br><span class="line">cond(yes)-&gt;e</span><br><span class="line">cond(no)-&gt;op</span><br><span class="line">&amp;</span><br></pre></td></tr></table></figure>
+
+<h1 id="闪存装载软件"><a href="#闪存装载软件" class="headerlink" title="闪存装载软件"></a>闪存装载软件</h1><p><a target="_blank" rel="noopener" href="https://support.touchgfx.com/4.21/zh-CN/docs/development/board-bring-up/how-to/11-flash-loader">STM32CubeProgrammer的闪存装载软件</a></p>
+<p>IAR程序放入.bss段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#pragma section=&quot;.bss&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="openocd添加第三方设备"><a href="#openocd添加第三方设备" class="headerlink" title="openocd添加第三方设备"></a>openocd添加第三方设备</h1><ul>
+<li><p>在.&#x2F;tcl&#x2F;target中,添加自己设备的.cfg文件,此文件用于编译后传递到scripts中供用户调用，此文件用于编译后传递到scripts中供用户调用</p>
+</li>
+<li><p>在.&#x2F;src&#x2F;flash&#x2F;nor中,添加自己设备的.c文件,此文件用于告知openocd你文件的flash烧录流程，此文件用于告知openocd你文件的flash烧录流程</p>
+</li>
+<li><p>在 &#x2F;src&#x2F;flash&#x2F;nor&#x2F;drivers.c中,添加自己设备的设备名,此处让openocd知晓你的设备，此处让openocd知晓你的设备.</p>
+</li>
+<li><p>在flash&#x2F;nor中,更改Makefile.am,令openocd的编译过程可以引用到你刚刚添加的文件.</p>
+</li>
 </ul>
-<p>你可以设置文本文件在检出时应该使用哪种行尾字符(LF、CRLF 或 auto)。这对于跨平台项目特别有用，因为 Windows 通常使用 CRLF 行尾，而 Unix 和 Linux 通常使用 LF 行尾。<br>text&#x3D;auto<br>或者针对特定文件或目录：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">somefile.txt text eol=lf</span><br><span class="line">subdir/ text eol=crlf</span><br></pre></td></tr></table></figure>
-<ul>
-<li>2.识别文本和二进制文件：</li>
-</ul>
-<p>Git 默认会尝试将文件识别为文本或二进制文件，但你可以通过 .gitattributes 文件来明确指定。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*.png binary</span><br><span class="line"># 或者*.png -text</span><br></pre></td></tr></table></figure>
-<ul>
-<li>3.合并策略：</li>
-</ul>
-<p>对于合并冲突，你可以为特定文件或目录设置不同的合并策略。<br>使用自定义的合并工具</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*.c merge=mytool</span><br></pre></td></tr></table></figure>
-<ul>
-<li>4.差异算法：</li>
-</ul>
-<p>你可以为某些文件指定特定的差异算法，以改进 Git 显示的差异。<br>使用 word-diff 算法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*.doc diff=word</span><br></pre></td></tr></table></figure>
-<ul>
-<li>5.导出过滤器：</li>
-</ul>
-<p>当使用 git archive 命令创建归档时，你可以指定过滤器来修改导出的文件内容。</p>
-<ul>
-<li>6.Smudge&#x2F;Clean 过滤器：</li>
-</ul>
-<p>你可以设置 smudge 和 clean 过滤器，这些过滤器会在检出和提交时分别应用，用于修改文件内容。例如，你可以使用这些过滤器来加密和解密文件，或者在检出时自动转换文件格式。</p>
-<ul>
-<li>7.语言识别：</li>
-</ul>
-<p>通过 .gitattributes 文件,Git 可以更好地识别某些文件的语言，从而改进代码统计和语法高亮等功能。</p>
-<p>为了使用 .gitattributes 文件，你需要将其放置在仓库的根目录或任何子目录中。如果文件位于子目录中，它只会影响该子目录及其子目录中的文件。还可以在 .gitattributes 文件中使用模式匹配来指定哪些文件或目录应该应用这些属性。</p>
-<p>.gitattributes 文件的更改不会影响已经提交到 Git 仓库的文件内容。这些更改只会影响未来的检出和提交操作。</p>
-<h2 id="gitattributes文件示例："><a href="#gitattributes文件示例：" class="headerlink" title="gitattributes文件示例："></a>gitattributes文件示例：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">*           text=auto</span><br><span class="line">*.txt		text</span><br><span class="line">*.jpg		-text</span><br><span class="line">*.vcproj	text eol=crlf</span><br><span class="line">*.sh		text eol=lf</span><br><span class="line">*.py		eol=lf</span><br></pre></td></tr></table></figure>
-<p>说明：</p>
-<p>第1行，对任何文件，设置text&#x3D;auto，表示文件的行尾自动转换。如果是文本文件，则在文件入Git库时，行尾自动转换为LF。如果已经在入Git库中的文件的行尾为CRLF，则该文件在入Git库时，不再转换为LF。</p>
-<p>第2行，对于txt文件，标记为文本文件，并进行行尾规范化。</p>
-<p>第3行，对于jpg文件，标记为非文本文件，不进行任何的行尾转换。</p>
-<p>第4行，对于vcproj文件，标记为文本文件，在文件入Git库时进行规范化，即行尾为LF。但是在检出到工作目录时，行尾自动转换为CRLF。</p>
-<p>第5行，对于sh文件，标记为文本文件，在文件入Git库时进行规范化，即行尾为LF。在检出到工作目录时，行尾也不会转换为CRLF（即保持LF）。</p>
-<p>第6行，对于py文件，只针对工作目录中的文件，行尾为LF。</p>
  
       <!-- reward -->
       
@@ -171,7 +152,7 @@
     
     <footer class="article-footer">
        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
 
     </footer>
   </div>
@@ -179,19 +160,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2024/12/26/lvgl/lvgluse/" class="article-nav-link">
+      <a href="/2024/12/26/stm32/hardfault/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            lvgl仿真
+            HardFault
           
         </div>
       </a>
     
     
-      <a href="/2024/12/26/linux/lib/" class="article-nav-link">
+      <a href="/2024/12/26/stm32/lwip%20mqtt/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">GCC lib</div>
+        <div class="article-nav-title">mqtt</div>
       </a>
     
   </nav>
