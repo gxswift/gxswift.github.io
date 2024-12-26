@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>归档 |  gx的博客</title>
+      <title>VIM |  gx的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -55,246 +55,425 @@
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-linux/vim"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">归档</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  VIM
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/12/26/linux/vim/" class="article-date">
+  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">2024-12-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2024" class="archive-year">2024</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">740</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">2 分钟</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/blog/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/blog/"
-    >Hexo 博客搭建</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/gitattributes/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/gitattributes/"
-    >gitattributes</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/lib/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/lib/"
-    >GCC lib</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/lvgl_linux/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/lvgl_linux/"
-    >lvgl仿真</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/raspberrypi/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/raspberrypi/"
-    >树莓派</a> 
-</h2>
+  <h1 id="vim操作"><a href="#vim操作" class="headerlink" title="vim操作"></a>vim操作</h1><p><a id="head"></a></p>
+<h2 id="移动"><a href="#移动" class="headerlink" title="移动"></a><a href="#move">移动</a></h2><h2 id="追加"><a href="#追加" class="headerlink" title="追加"></a><a href="#add">追加</a></h2><h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a><a href="#del">删除</a></h2><h2 id="复制粘贴"><a href="#复制粘贴" class="headerlink" title="复制粘贴"></a><a href="#copy">复制粘贴</a></h2><h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a><a href="#find">查找</a></h2><h2 id="多文件操作"><a href="#多文件操作" class="headerlink" title="多文件操作"></a><a href="#multiple">多文件操作</a></h2><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a><a href="#other">其他</a></h2><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>含义</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a id="move"><a href="#head">移动</a></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>l or 右箭头</td>
+<td>向右移动一个字符</td>
+<td></td>
+</tr>
+<tr>
+<td>h or 左箭头</td>
+<td>向左移动一个字符</td>
+<td></td>
+</tr>
+<tr>
+<td>j or 下箭头</td>
+<td>向下移动一行</td>
+<td></td>
+</tr>
+<tr>
+<td>k or 上箭头</td>
+<td>向上移动一行</td>
+<td></td>
+</tr>
+<tr>
+<td>0 (零按键)</td>
+<td>移动到当前行的行首。</td>
+<td></td>
+</tr>
+<tr>
+<td>^</td>
+<td>移动到当前行的第一个非空字符。</td>
+<td></td>
+</tr>
+<tr>
+<td>$</td>
+<td>移动到当前行的末尾。</td>
+<td></td>
+</tr>
+<tr>
+<td>w</td>
+<td>移动到下一个单词或标点符号的开头。</td>
+<td></td>
+</tr>
+<tr>
+<td>W</td>
+<td>移动到下一个单词的开头，忽略标点符号。</td>
+<td></td>
+</tr>
+<tr>
+<td>b</td>
+<td>移动到上一个单词或标点符号的开头。</td>
+<td></td>
+</tr>
+<tr>
+<td>B</td>
+<td>移动到上一个单词的开头，忽略标点符号。</td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl-f or Page Down</td>
+<td>向下翻一页</td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl-b or Page Up</td>
+<td>向上翻一页</td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl-d</td>
+<td>向下翻半页</td>
+<td></td>
+</tr>
+<tr>
+<td>Ctrl-u</td>
+<td>向上翻半页</td>
+<td></td>
+</tr>
+<tr>
+<td>numberG or number</td>
+<td>移动到第number 行。</td>
+<td>1(G) 移动到文件的第一行,命令前加数字，为命令执行次数</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移动到文件末尾。</td>
+<td></td>
+</tr>
+<tr>
+<td><a id="add"><a href="#head"><strong>追加</strong></a></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>i</td>
+<td>光标前插入</td>
+<td></td>
+</tr>
+<tr>
+<td>I</td>
+<td>行前插入</td>
+<td></td>
+</tr>
+<tr>
+<td>a</td>
+<td>光标后插入</td>
+<td></td>
+</tr>
+<tr>
+<td>A</td>
+<td>行后插入</td>
+<td></td>
+</tr>
+<tr>
+<td>o</td>
+<td>当前行的下方打开一行。</td>
+<td></td>
+</tr>
+<tr>
+<td>O</td>
+<td>当前行的上方打开一行。</td>
+<td></td>
+</tr>
+<tr>
+<td><a id="del"><a href="#head"><strong>删除</strong></a></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>x</td>
+<td>当前字符</td>
+<td>3x当前字符及其后的两个字符。</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>当前行。</td>
+<td>5dd 当前行及随后的四行文本。</td>
+</tr>
+<tr>
+<td>dW</td>
+<td>从光标位置开始到下一个单词的开头。</td>
+<td></td>
+</tr>
+<tr>
+<td>d$</td>
+<td>从光标位置开始到当前行的行尾。</td>
+<td></td>
+</tr>
+<tr>
+<td>d0</td>
+<td>从光标位置开始到当前行的行首。</td>
+<td></td>
+</tr>
+<tr>
+<td>d^</td>
+<td>从光标位置开始到文本行的第一个非空字符。</td>
+<td></td>
+</tr>
+<tr>
+<td>dG</td>
+<td>从当前行到文件的末尾。</td>
+<td></td>
+</tr>
+<tr>
+<td>d20G</td>
+<td>从当前行到文件的第20 行。</td>
+<td></td>
+</tr>
+<tr>
+<td><a id="copy"><a href="#head"><strong>复制粘贴</strong></a></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>yy</td>
+<td>当前行。</td>
+<td></td>
+</tr>
+<tr>
+<td>5yy</td>
+<td>当前行及随后的四行文本。</td>
+<td></td>
+</tr>
+<tr>
+<td>yW</td>
+<td>从当前光标位置到下一个单词的开头。</td>
+<td></td>
+</tr>
+<tr>
+<td>y$</td>
+<td>从当前光标位置到当前行的末尾。</td>
+<td></td>
+</tr>
+<tr>
+<td>y0</td>
+<td>从当前光标位置到行首。</td>
+<td></td>
+</tr>
+<tr>
+<td>y^</td>
+<td>从当前光标位置到文本行的第一个非空字符。</td>
+<td></td>
+</tr>
+<tr>
+<td>yG</td>
+<td>从当前行到文件末尾。</td>
+<td></td>
+</tr>
+<tr>
+<td>y20G</td>
+<td>从当前行到文件的第20 行。</td>
+<td></td>
+</tr>
+<tr>
+<td>p</td>
+<td>粘贴到当前行的下面</td>
+<td></td>
+</tr>
+<tr>
+<td><a id="find"><a href="#head"><strong>查找和替换</strong></a></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>&#x2F;</td>
+<td>查找</td>
+<td>&#x2F;foo查找foo，\c表示大小写不敏感查找，\C表示大小写敏感查找</td>
+</tr>
+<tr>
+<td>n</td>
+<td>下一个</td>
+<td></td>
+</tr>
+<tr>
+<td>N</td>
+<td>前一个</td>
+<td></td>
+</tr>
+<tr>
+<td>s</td>
+<td>替换{作用范围}s&#x2F;{目标}&#x2F;{替换}&#x2F;{替换标志}</td>
+<td>%s&#x2F;foo&#x2F;bar&#x2F;g会在全局范围(%)查找foo并替换为bar，所有出现都会被替换(g)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>s&#x2F;foo&#x2F;bar&#x2F;g替换当前行</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>%s&#x2F;foo&#x2F;bar&#x2F;i。i表示大小写不敏感查找，I表示大小写敏感，%表示第一行到最后一行，或者用1,5代替</td>
+</tr>
+<tr>
+<td><a id="multiple"><a href="#head"><strong>多文件操作</strong></a></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>n</td>
+<td>下一个文件</td>
+<td></td>
+</tr>
+<tr>
+<td>N</td>
+<td>前一个文件</td>
+<td></td>
+</tr>
+<tr>
+<td>buffers</td>
+<td>查看文件列表</td>
+<td></td>
+</tr>
+<tr>
+<td><a id="other"><a href="#head"><strong>其他</strong></a></a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>J</td>
+<td>删除当前行最后回车，连接下一行</td>
+<td></td>
+</tr>
+<tr>
+<td>w</td>
+<td>写入</td>
+<td></td>
+</tr>
+<tr>
+<td>q</td>
+<td>退出</td>
+<td></td>
+</tr>
+<tr>
+<td>!</td>
+<td>强制</td>
+<td></td>
+</tr>
+</tbody></table>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/makefile/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/makefile/"
-    >Makefile</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/rtmp/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/rtmp/"
-    >RTMP</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/ssh/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/ssh/"
-    >ssh和git</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/sqlite/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/sqlite/"
-    >sqlite</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/tftp/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/tftp/"
-    >TFTP NFS</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">下一页</a>
+
+    <!-- copyright -->
+    
+    <!-- <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div> -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/" rel="tag">vim</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2024/12/26/linux/think/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            思考
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2024/12/26/linux/zdyz/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">i.mx6ull开发板</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+    
+</article>
+
 </section>
       <!-- <footer class="footer">
   <div class="outer">
@@ -425,6 +604,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link

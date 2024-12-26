@@ -11,7 +11,7 @@
         name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1"
       />
-      <title>归档 |  gx的博客</title>
+      <title>树莓派 |  gx的博客</title>
   <meta name="generator" content="hexo-theme-ayer">
       
       <link rel="shortcut icon" href="/favicon.ico" />
@@ -55,246 +55,136 @@
       
     <main class="content on">
       <section class="outer">
-  
-  
-  <article class="articles">
+  <article
+  id="post-linux/raspberrypi"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
     
-    
-    <h1 class="page-type-title">归档</h1>
-    
-    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  树莓派
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/12/26/linux/raspberrypi/" class="article-date">
+  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">2024-12-26</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
   
-  
-  
-  
-  
-  
-  <div class="archives-wrap">
-    <div class="archive-year-wrap">
-      <a href="/archives/2024" class="archive-year">2024</a>
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">202</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1 分钟</span>
+        </span>
+    </span>
+</div>
+ 
     </div>
-    <div class="archives">
       
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/blog/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/blog/"
-    >Hexo 博客搭建</a> 
-</h2>
- 
+    <div class="tocbot"></div>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/gitattributes/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/gitattributes/"
-    >gitattributes</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/lib/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/lib/"
-    >GCC lib</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/lvgl_linux/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/lvgl_linux/"
-    >lvgl仿真</a> 
-</h2>
- 
 
-    </header>
-    
-    
-  </div>
-</article>
-      
   
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/raspberrypi/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
        
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/raspberrypi/"
-    >树莓派</a> 
-</h2>
- 
+  <h2 id="开机"><a href="#开机" class="headerlink" title="开机"></a>开机</h2><ul>
+<li>格式化SD卡</li>
+<li>镜像烧录（如果失败需要覆盖格式化SD卡）</li>
+<li>boot文件夹下添加ssh空文件</li>
+<li>ssh连接 ssh pi@ip</li>
+<li>远程桌面sodu apt-get install xrdp</li>
+</ul>
+<h2 id="wifi"><a href="#wifi" class="headerlink" title="wifi"></a>wifi</h2><ol>
+<li>编辑 wpa_supplicant.conf<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/wpa_supplicant/wpa_supplicant.conf</span><br></pre></td></tr></table></figure></li>
+<li>添加以下内容（替换为你的 Wi-Fi 信息）：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">network=&#123; ssid=&quot;你的Wi-Fi名称&quot; psk=&quot;你的Wi-Fi密码&quot; key_mgmt=WPA-PSK &#125;</span><br></pre></td></tr></table></figure></li>
+<li>重启网络服务<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wpa_cli -i wlan0 reconfigure</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h2><p>输入以下命令查看可用时区列表：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">timedatectl list-timezones</span><br><span class="line">timedatectl list-timezones | grep Asia</span><br></pre></td></tr></table></figure>
+<p>找到您想要设置的时区，然后使用以下命令进行设置，将Europe&#x2F;Berlin替换为您的时区：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo timedatectl set-timezone Asia/Shanghai</span><br></pre></td></tr></table></figure>
+<p>设置完成后，您可以使用以下命令确认时区已经更改：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl</span><br></pre></td></tr></table></figure>
 
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/makefile/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/makefile/"
-    >Makefile</a> 
-</h2>
+<h2 id="寻找"><a href="#寻找" class="headerlink" title="寻找"></a>寻找</h2><p>主机名<code>raspberrypi</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping raspberrypi</span><br></pre></td></tr></table></figure>
  
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/rtmp/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/rtmp/"
-    >RTMP</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/ssh/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/ssh/"
-    >ssh和git</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/sqlite/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/sqlite/"
-    >sqlite</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
-  
-  
-      <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/12/26/linux/tftp/" class="archive-article-date">
-  <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">12/26</time>
-</a>
-       
-<h2 itemprop="name">
-  <a class="archive-article-title" href="/2024/12/26/linux/tftp/"
-    >TFTP NFS</a> 
-</h2>
- 
-
-    </header>
-    
-    
-  </div>
-</article>
-      
+      <!-- reward -->
       
     </div>
-  </div>
-  
-  
-
-  
-  <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">下一页</a>
+
+    <!-- copyright -->
+    
+    <!-- <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div> -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raspberrypi/" rel="tag">raspberrypi</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2024/12/26/linux/lvgl_linux/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            lvgl仿真
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2024/12/26/linux/makefile/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Makefile</div>
+      </a>
+    
   </nav>
+
   
+   
+  
+    
+</article>
+
 </section>
       <!-- <footer class="footer">
   <div class="outer">
@@ -425,6 +315,22 @@
 <script src="/js/lazyload.min.js"></script>
 
 <!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
 
 <script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
 <link
