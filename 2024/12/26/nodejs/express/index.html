@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">468</span>
+            <span class="post-count">736</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">2 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -112,6 +112,20 @@
     <div class="article-entry" itemprop="articleBody">
        
   <h2 id="一、安装Node-js"><a href="#一、安装Node-js" class="headerlink" title="一、安装Node.js"></a>一、安装Node.js</h2><p>进入Node.js官网下载并安装，选exe,添加环境变量</p>
+<p>在使用npm命令时，如果直接从国外的仓库下载依赖，有时候下载速度很慢，甚至会下载不下来。这时我们可以更换npm的仓库源，提高下载速度。</p>
+<p>查看npm源地址：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+<p>更换npm源为淘宝镜像：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org/</span><br></pre></td></tr></table></figure>
+
+<p>如果设置了npm为淘宝镜像，需要恢复为默认源时：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npmjs.org/</span><br></pre></td></tr></table></figure>
+<p>设置好之后，记得通过 npm config get registry 查看源是否设置成功。</p>
+<p>注意：如果只是想临时更换源地址，可以进行如下操作:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install packagname -g --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>国内npm源地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm 官方原始镜像：https://registry.npmjs.org/</span><br><span class="line">淘宝 NPM 镜像：https://registry.npm.taobao.org</span><br><span class="line">阿里云 NPM 镜像：https://npm.aliyun.com</span><br><span class="line">腾讯云 NPM 镜像：https://mirrors.cloud.tencent.com/npm/</span><br><span class="line">华为云 NPM 镜像：https://mirrors.huaweicloud.com/repository/npm/</span><br><span class="line">网易 NPM 镜像：https://mirrors.163.com/npm/</span><br><span class="line">中科院大学开源镜像站：http://mirrors.ustc.edu.cn/</span><br><span class="line">清华大学开源镜像站：https://mirrors.tuna.tsinghua.edu.cn/</span><br></pre></td></tr></table></figure>
+
 <h2 id="二、安装express和express-generator"><a href="#二、安装express和express-generator" class="headerlink" title="二、安装express和express-generator"></a>二、安装express和express-generator</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g express</span><br><span class="line">npm install -g express-generator</span><br></pre></td></tr></table></figure>
 <h2 id="三、生成项目"><a href="#三、生成项目" class="headerlink" title="三、生成项目"></a>三、生成项目</h2><p>在项目名称的后面添加 -e 那么创建出来的模板文件就是.ejs类型，语法是与html相同</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">express APP_NAME -e</span><br></pre></td></tr></table></figure>
