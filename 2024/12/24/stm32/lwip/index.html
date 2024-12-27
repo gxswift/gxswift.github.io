@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+
+<html lang="zh">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>lwip宏 |  gx的博客</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-stm32/lwip"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  lwip宏
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/12/24/stm32/lwip/" class="article-date">
+  <time datetime="2024-12-24T01:43:25.000Z" itemprop="datePublished">2024-12-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/stm32/">stm32</a> / <a class="article-category-link" href="/categories/stm32/lwip/">lwip</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">1.6k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">5 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="lwip宏定义"><a href="#lwip宏定义" class="headerlink" title="lwip宏定义"></a>lwip宏定义</h1><ol>
+<li><p><code>TCPIP_THREAD_PRIO</code>: 定义了lwIP协议栈中的TCP&#x2F;IP线程的优先级。可以根据系统需求进行调整。例如，如果系统中有其他高优先级任务，可以将该值设置为较低的优先级，以确保系统的稳定性。</p>
+</li>
+<li><p><code>DEFAULT_THREAD_PRIO</code>: 定义了默认线程的优先级。同样，可以根据系统需求进行调整。</p>
+</li>
+<li><p><code>SYS_LIGHTWEIGHT_PROT</code>: 定义了系统是否启用轻量级保护机制。如果启用，将使用更轻量级的保护机制来保护共享资源，以提高系统性能。</p>
+</li>
+<li><p><code>NO_SYS</code>: 定义了是否禁用操作系统功能。如果设置为1，将禁用操作系统功能，lwIP将在裸机环境下运行。</p>
+</li>
+<li><p><code>MEM_ALIGNMENT</code>: 定义了内存对齐方式。可以根据硬件平台的要求进行调整。</p>
+</li>
+<li><p><code>MEM_SIZE</code>: 定义了lwIP协议栈使用的内存大小。可以根据系统需求进行调整。例如，如果系统内存较小，可以减小该值以节省内存空间。</p>
+</li>
+<li><p><code>MEMP_NUM_PBUF</code>: 定义了可用的pbuf（数据包缓冲区）数量。可以根据系统的网络负载进行调整。例如，如果系统需要处理大量的网络数据包，可以增加该值以提高性能。</p>
+</li>
+<li><p><code>MEMP_NUM_UDP_PCB</code>: 定义了可用的UDP协议控制块（PCB）数量。可以根据系统的UDP连接数进行调整。</p>
+</li>
+<li><p><code>MEMP_NUM_TCP_PCB</code>: 定义了可用的TCP协议控制块（PCB）数量。可以根据系统的TCP连接数进行调整。</p>
+</li>
+<li><p><code>MEMP_NUM_TCP_PCB_LISTEN</code>: 定义了可用的TCP监听协议控制块（PCB）数量。可以根据系统的TCP监听连接数进行调整。</p>
+</li>
+<li><p><code>MEMP_NUM_TCP_SEG</code>: 定义了可用的TCP分段数量。可以根据系统的TCP连接数和数据传输需求进行调整。</p>
+</li>
+<li><p><code>MEMP_NUM_SYS_TIMEOUT</code>: 定义了可用的系统超时数量。可以根据系统的需求进行调整。</p>
+</li>
+<li><p><code>MEMP_NUM_NETCONN</code>: 定义了可用的网络连接数量。可以根据系统的网络连接需求进行调整。</p>
+</li>
+<li><p><code>PBUF_POOL_SIZE</code>: 定义了pbuf（数据包缓冲区）池的大小。可以根据系统的网络负载进行调整。</p>
+</li>
+<li><p><code>PBUF_POOL_BUFSIZE</code>: 定义了pbuf（数据包缓冲区）的大小。可以根据系统的网络负载和数据包大小进行调整。</p>
+</li>
+<li><p><code>LWIP_SUPPORT_CUSTOM_PBUF</code>: 定义了是否支持自定义pbuf（数据包缓冲区）。如果设置为1，可以使用自定义的pbuf实现，以满足特定的需求。</p>
+</li>
+<li><p><code>LWIP_TCP</code>: 定义了是否启用TCP协议。如果设置为1，将启用TCP协议。</p>
+</li>
+<li><p><code>TCP_TTL</code>: 定义了TCP数据包的生存时间（TTL）。</p>
+</li>
+<li><p><code>TCP_QUEUE_OOSEQ</code>: 定义了是否启用TCP乱序队列。如果设置为1，将启用TCP乱序队列。</p>
+</li>
+<li><p><code>TCPIP_MBOX_SIZE</code>: 定义了TCP&#x2F;IP线程的邮箱大小。可以根据系统的需求进行调整。</p>
+</li>
+<li><p><code>DEFAULT_TCP_RECVMBOX_SIZE</code>: 定义了TCP接收邮箱的大小。可以根据系统的需求进行调整。</p>
+</li>
+<li><p><code>DEFAULT_ACCEPTMBOX_SIZE</code>: 定义了TCP连接接受邮箱的大小。可以根据系统的需求进行调整。</p>
+</li>
+<li><p><code>TCP_MSS</code>: 定义了TCP最大段大小（Maximum Segment Size）。可以根据网络环境和带宽进行调整。</p>
+</li>
+<li><p><code>TCP_SND_BUF</code>: 定义了TCP发送缓冲区的大小。可以根据系统的需求和网络带宽进行调整。</p>
+</li>
+<li><p><code>TCP_SND_QUEUELEN</code>: 定义了TCP发送队列的长度。可以根据系统的需求和网络带宽进行调整。</p>
+</li>
+<li><p><code>TCP_WND</code>: 定义了TCP窗口大小。可以根据网络环境和带宽进行调整。</p>
+</li>
+<li><p><code>LWIP_ICMP</code>: 定义了是否启用ICMP协议。如果设置为1，将启用ICMP协议。</p>
+</li>
+<li><p><code>LWIP_DHCP</code>: 定义了是否启用DHCP协议。如果设置为1，将启用DHCP协议。</p>
+</li>
+<li><p><code>LWIP_UDP</code>: 定义了是否启用UDP协议。如果设置为1，将启用UDP协议。</p>
+</li>
+<li><p><code>UDP_TTL</code>: 定义了UDP数据包的生存时间（TTL）。</p>
+</li>
+<li><p><code>LWIP_STATS</code>: 定义了是否启用lwIP统计功能。如果设置为1，将启用lwIP的统计功能。</p>
+</li>
+<li><p><code>LWIP_PROVIDE_ERRNO</code>: 定义了是否提供errno变量。如果设置为1，将提供errno变量。</p>
+</li>
+<li><p><code>CHECKSUM_BY_HARDWARE</code>: 定义了是否使用硬件加速计算校验和。如果定义了该宏，将使用硬件加速计算校验和。</p>
+</li>
+<li><p><code>CHECKSUM_GEN_IP</code>, <code>CHECKSUM_GEN_UDP</code>, <code>CHECKSUM_GEN_TCP</code>, <code>CHECKSUM_CHECK_IP</code>, <code>CHECKSUM_CHECK_UDP</code>, <code>CHECKSUM_CHECK_TCP</code>, <code>CHECKSUM_GEN_ICMP</code>: 这些宏定义了是否生成和检查IP、UDP、TCP和ICMP数据包的校验和。根据系统的硬件和性能需求进行调整。</p>
+</li>
+<li><p><code>LWIP_NETCONN</code>: 定义了是否启用lwIP的netconn API。如果设置为1，将启用lwIP的netconn API。</p>
+</li>
+<li><p><code>LWIP_SOCKET</code>: 定义了是否启用lwIP的socket API。如果设置为1，将启用lwIP的socket API。</p>
+</li>
+<li><p><code>LWIP_COMPAT_MUTEX</code>: 定义了是否启用lwIP的互斥锁兼容模式。如果设置为1，将启用lwIP的互斥锁兼容模式。</p>
+</li>
+<li><p><code>LWIP_SO_RCVTIMEO</code>: 定义了是否启用lwIP的接收超时功能。如果设置为1，将启用lwIP的接收超时功能。</p>
+</li>
+<li><p><code>TCPIP_THREAD_STACKSIZE</code>: 定义了TCP&#x2F;IP线程的堆栈大小。可以根据系统的需求进行调整。</p>
+</li>
+<li><p><code>DEFAULT_UDP_RECVMBOX_SIZE</code>: 定义了UDP接收邮箱的大小。可以根据系统的需求进行调整。</p>
+</li>
+<li><p><code>DEFAULT_THREAD_STACKSIZE</code>: 定义了默认线程的堆栈大小。可以根据系统的需求进行调整。</p>
+</li>
+<li><p><code>LWIP_TCP_KEEPALIVE</code>, <code>TCP_KEEPIDLE_DEFAULT</code>, <code>TCP_KEEPINTVL_DEFAULT</code>, <code>TCP_KEEPCNT_DEFAULT</code>, <code>TCP_MAXIDLE</code>: 这些宏定义了TCP保持连接的相关参数。可以根据系统的需求进行调整。</p>
+</li>
+<li><p><code>LWIP_DEBUG</code>: 定义了是否启用lwIP的调试功能。如果设置为1，将启用lwIP的调试功能。</p>
+</li>
+<li><p><code>ICMP_DEBUG</code>: 定义了ICMP调试的级别。可以根据系统的需求进行调整。</p>
+</li>
+<li><p><code>LWIP_NETIF_LOOPBACK</code>: 定义了是否启用lwIP的回环接口。如果设置为1，将启用lwIP的回环接口。</p>
+</li>
+<li><p><code>LWIP_LOOPBACK_MAX_PBUFS</code>: 定义了回环接口的最大pbuf（数据包缓冲区）数量。可以根据系统的需求进行调整。</p>
+</li>
+</ol>
+<p>这些宏定义可以根据具体的系统需求进行优化配置。例如，如果系统需要处理大量的TCP连接，可以增加<code>MEMP_NUM_TCP_PCB</code>和<code>MEMP_NUM_TCP_PCB_LISTEN</code>的值。如果系统内存较小，可以减小<code>MEM_SIZE</code>的值。如果系统需要支持更多的UDP连接，可以增加<code>MEMP_NUM_UDP_PCB</code>的值。通过调整这些宏定义的值，可以根据系统的需求和硬件资源进行优化配置，以提高系统性能和资源利用率。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Chuangke_Andy/article/details/115303370">lwIP核心业务逻辑</a></p>
+<p>lwip 文件生成</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">TARGET=makefsdata</span><br><span class="line"></span><br><span class="line">C_INCLUDES =  \</span><br><span class="line">-I../../../<span class="keyword">include</span>/ \</span><br><span class="line">-I../../../../test/unit/</span><br><span class="line"><span class="comment">#需要添加contrib下ports\unix\port\include\arch\cc.h</span></span><br><span class="line"><span class="section">all:</span></span><br><span class="line">	gcc <span class="variable">$(C_INCLUDES)</span> -o <span class="variable">$(TARGET)</span>.exe makefsdata.c</span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	-rm <span class="variable">$(TARGET)</span>.exe</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <!-- <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div> -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/lwip/" rel="tag">lwip</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stm32/" rel="tag">stm32</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2024/12/24/stm32/makefile/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Makefile
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2024/12/24/stm32/start/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">stm32启动</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+    
+</article>
+
+</section>
+      <!-- <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2024
+        <i class="ri-heart-fill heart_icon"></i> GX
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>     -->
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="gx的博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/me">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>

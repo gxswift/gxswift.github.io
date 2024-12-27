@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+
+<html lang="zh">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>pyqt5 |  gx的博客</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    </head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-python/pyqt5"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  pyqt5
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/12/24/python/pyqt5/" class="article-date">
+  <time datetime="2024-12-24T01:43:25.000Z" itemprop="datePublished">2024-12-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/python/">python</a> / <a class="article-category-link" href="/categories/python/qt/">qt</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">955</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">5 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="pyqt5"><a href="#pyqt5" class="headerlink" title="pyqt5"></a>pyqt5</h1><h2 id="UI生成"><a href="#UI生成" class="headerlink" title="UI生成"></a><code>UI生成</code></h2><p>命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyuic5.exe .\untitled.ui -o data_analysis.py</span><br></pre></td></tr></table></figure>
+
+<h2 id="资源文件"><a href="#资源文件" class="headerlink" title="资源文件"></a><code>资源文件</code></h2><p>qrc文件格式</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;RCC&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">qresource</span> <span class="attr">prefix</span>=<span class="string">&quot;/&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">file</span>&gt;</span>main.qml<span class="tag">&lt;/<span class="name">file</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">file</span>&gt;</span>BasicComponentDemo.qml<span class="tag">&lt;/<span class="name">file</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">file</span>&gt;</span>BasicInputComponent.qml<span class="tag">&lt;/<span class="name">file</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">file</span>&gt;</span>CustomComponentDemo.qml<span class="tag">&lt;/<span class="name">file</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">qresource</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">RCC</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pyrcc5 -o src.py  src.qrc</span><br></pre></td></tr></table></figure>
+<p>引用</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#路径为：冒号+prefix路径前缀+file相对路径 </span></span><br><span class="line">QPixmap(<span class="string">&quot;:/imgA.jpg&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用例子"><a href="#使用例子" class="headerlink" title="使用例子"></a><code>使用例子</code></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PyQt5 <span class="keyword">import</span> QtCore, QtGui, QtWidgets</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QLabel, QMessageBox,QFileDialog</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtGui <span class="keyword">import</span> QIcon</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtCore <span class="keyword">import</span> QTimer</span><br><span class="line"><span class="comment"># from mainui import Ui_MainWindow</span></span><br><span class="line"><span class="keyword">from</span> mainui <span class="keyword">import</span> Ui_MainWindow</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> jpgfunc</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> jpgfunc</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MainWindow</span>(QtWidgets.QMainWindow, Ui_MainWindow):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, parent=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="built_in">super</span>(MainWindow, <span class="variable language_">self</span>).__init__(parent)</span><br><span class="line">        <span class="variable language_">self</span>.setupUi(<span class="variable language_">self</span>)</span><br><span class="line">        <span class="comment"># 设置应用程序的窗口图标</span></span><br><span class="line">        <span class="variable language_">self</span>.setWindowIcon(QIcon(<span class="string">&quot;:/apple.ico&quot;</span>))</span><br><span class="line">        <span class="variable language_">self</span>.setFixedSize(<span class="variable language_">self</span>.width(),<span class="variable language_">self</span>.height())</span><br><span class="line">        <span class="variable language_">self</span>.setWindowTitle(<span class="string">&quot;图片简易处理小工具   作者：gx&quot;</span>)</span><br><span class="line">        <span class="comment"># self.setWindowFlags(QtCore.Qt.WindowMinimizeButtonHint)</span></span><br><span class="line">        <span class="variable language_">self</span>.label.setText(<span class="string">&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># self.setStyleSheet(&quot;#MainWindow&#123;background-color:lightblue&#125;&quot;)</span></span><br><span class="line">        <span class="variable language_">self</span>.setStyleSheet(<span class="string">&quot;#MainWindow&#123;border-image:url(:/back.jpg)&#125;&quot;</span>)</span><br><span class="line">        <span class="comment"># self.layout = QtWidgets.QWidget()</span></span><br><span class="line">        <span class="comment"># self.layout.setStyleSheet(&#x27;&#x27;&#x27;QWidget&#123;background-color:rgb(245, 245, 245);&#125;&#x27;&#x27;&#x27;)</span></span><br><span class="line">        <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;图片简易处理小工具,专门为办公室电脑小白设计，满足基本图片处理需求&quot;</span>)</span><br><span class="line">        <span class="variable language_">self</span>.comboBox.addItem(<span class="string">&quot;水平&quot;</span>)</span><br><span class="line">        <span class="variable language_">self</span>.comboBox.addItem(<span class="string">&quot;垂直&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.pushButton.clicked.connect(<span class="variable language_">self</span>.selectfile)</span><br><span class="line">        <span class="variable language_">self</span>.pushButton_2.clicked.connect(<span class="variable language_">self</span>.ConvertImage)</span><br><span class="line">        <span class="variable language_">self</span>.radioButton.clicked.connect(<span class="variable language_">self</span>.func1)</span><br><span class="line">        <span class="variable language_">self</span>.radioButton_2.clicked.connect(<span class="variable language_">self</span>.func2)</span><br><span class="line">        <span class="variable language_">self</span>.radioButton_3.clicked.connect(<span class="variable language_">self</span>.func3)</span><br><span class="line">        <span class="variable language_">self</span>.radioButton_4.clicked.connect(<span class="variable language_">self</span>.func4)</span><br><span class="line">        <span class="variable language_">self</span>.radioButton_5.clicked.connect(<span class="variable language_">self</span>.func5)</span><br><span class="line">        <span class="variable language_">self</span>.radioButton_6.clicked.connect(<span class="variable language_">self</span>.func6)</span><br><span class="line">        <span class="variable language_">self</span>.radioButton_7.clicked.connect(<span class="variable language_">self</span>.func7)</span><br><span class="line">        <span class="variable language_">self</span>.radioButton_8.clicked.connect(<span class="variable language_">self</span>.func8)</span><br><span class="line">        <span class="variable language_">self</span>.radioButton_9.clicked.connect(<span class="variable language_">self</span>.func9)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.horizontalSlider.valueChanged.connect(<span class="variable language_">self</span>.sliderchange)</span><br><span class="line">        <span class="variable language_">self</span>.horizontalSlider_2.valueChanged.connect(<span class="variable language_">self</span>.sliderchange)</span><br><span class="line">        <span class="variable language_">self</span>.horizontalSlider_3.valueChanged.connect(<span class="variable language_">self</span>.sliderchange)</span><br><span class="line">        <span class="variable language_">self</span>.horizontalSlider_4.valueChanged.connect(<span class="variable language_">self</span>.sliderchange)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">sliderchange</span>(<span class="params">self</span>):</span><br><span class="line">        R = <span class="variable language_">self</span>.horizontalSlider.value()</span><br><span class="line">        G = <span class="variable language_">self</span>.horizontalSlider_2.value()</span><br><span class="line">        B = <span class="variable language_">self</span>.horizontalSlider_3.value()</span><br><span class="line">        <span class="variable language_">self</span>.label_12.setStyleSheet(<span class="string">&quot;background-color:rgb(&#123;&#125;, &#123;&#125;, &#123;&#125;)&quot;</span>.<span class="built_in">format</span>(R,G,B))</span><br><span class="line">        <span class="comment"># self.statusBar.hide()</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">alldisable</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>.groupBox_2.setEnabled(<span class="number">0</span>)</span><br><span class="line">        <span class="variable language_">self</span>.groupBox_3.setEnabled(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">func1</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton.isChecked():</span><br><span class="line">            <span class="comment"># self.statusBar.show()</span></span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;剪裁&quot;</span>)</span><br><span class="line">            <span class="variable language_">self</span>.alldisable()</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">func2</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_2.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.groupBox_2.setEnabled(<span class="number">1</span>)</span><br><span class="line">            <span class="variable language_">self</span>.textEdit_20.setEnabled(<span class="number">1</span>)</span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;格式&quot;</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">func3</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_3.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;尺寸&quot;</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">func4</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_4.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;压缩&quot;</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">func5</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_5.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;旋转&quot;</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">func6</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_6.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;镜像&quot;</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">func7</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_7.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;手绘&quot;</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">func8</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_8.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;模糊&quot;</span>)</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">func9</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_9.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;黑白&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">selectfile</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;button 1 clicked&quot;</span>)</span><br><span class="line">        selectfilename = QFileDialog.getOpenFileName()</span><br><span class="line">        <span class="variable language_">self</span>.filename = selectfilename[<span class="number">0</span>]</span><br><span class="line">        <span class="variable language_">self</span>.textEdit.setText(<span class="variable language_">self</span>.filename)</span><br><span class="line">        im = Image.<span class="built_in">open</span>(<span class="variable language_">self</span>.filename)</span><br><span class="line"></span><br><span class="line">        info = <span class="string">&quot;图片信息：&quot;</span></span><br><span class="line">        info+=<span class="string">&quot;     尺寸：&quot;</span>+<span class="built_in">str</span>(im.width)+<span class="string">&quot;x&quot;</span>+<span class="built_in">str</span>(im.height)</span><br><span class="line">        info+=<span class="string">&quot;     格式：&quot;</span>+im.mode</span><br><span class="line">        info+=<span class="string">&quot;     大小：&quot;</span>+<span class="built_in">str</span>(os.path.getsize(<span class="variable language_">self</span>.filename))+<span class="string">&quot;B&quot;</span></span><br><span class="line">        <span class="variable language_">self</span>.label.setText(info)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">ConvertImage</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;button 2 clicked&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton.isChecked():</span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;剪裁转换开始&quot;</span>)</span><br><span class="line">            x = <span class="variable language_">self</span>.textEdit_6.toPlainText()</span><br><span class="line">            x = <span class="built_in">int</span>(x)</span><br><span class="line">            y = <span class="variable language_">self</span>.textEdit_7.toPlainText()</span><br><span class="line">            y = <span class="built_in">int</span>(y)</span><br><span class="line">            w = <span class="variable language_">self</span>.textEdit_13.toPlainText()</span><br><span class="line">            w = <span class="built_in">int</span>(w)</span><br><span class="line">            h = <span class="variable language_">self</span>.textEdit_14.toPlainText()</span><br><span class="line">            h = <span class="built_in">int</span>(h)</span><br><span class="line">            jpgfunc.Cut(<span class="variable language_">self</span>.filename,x,y,w,h)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_2.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;格式转换开始&quot;</span>)</span><br><span class="line">            <span class="built_in">format</span> = <span class="variable language_">self</span>.textEdit_18.toPlainText()</span><br><span class="line">            jpgfunc.Format(<span class="variable language_">self</span>.filename,<span class="built_in">format</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_3.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;尺寸转换开始&quot;</span>)</span><br><span class="line">            x = <span class="variable language_">self</span>.textEdit_16.toPlainText()</span><br><span class="line">            x = <span class="built_in">int</span>(x)</span><br><span class="line">            y = <span class="variable language_">self</span>.textEdit_17.toPlainText()</span><br><span class="line">            y = <span class="built_in">int</span>(y)</span><br><span class="line">            jpgfunc.Resize(<span class="variable language_">self</span>.filename,x,y)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_4.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;压缩转换开始&quot;</span>)</span><br><span class="line">            mb = <span class="variable language_">self</span>.textEdit_4.toPlainText()</span><br><span class="line">            mb = <span class="built_in">int</span>(mb)</span><br><span class="line">            step = <span class="variable language_">self</span>.textEdit_15.toPlainText()</span><br><span class="line">            step = <span class="built_in">int</span>(step)</span><br><span class="line">            quality = <span class="variable language_">self</span>.textEdit_5.toPlainText()</span><br><span class="line">            quality = <span class="built_in">int</span>(quality)</span><br><span class="line">            jpgfunc.Compress(<span class="variable language_">self</span>.filename,mb,step,quality)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_5.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;旋转转换开始&quot;</span>)</span><br><span class="line">            angle = <span class="variable language_">self</span>.textEdit_20.toPlainText()</span><br><span class="line">            angle = <span class="built_in">int</span>(angle)</span><br><span class="line">            jpgfunc.Rotate(<span class="variable language_">self</span>.filename,angle)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_6.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;镜像转换开始&quot;</span>)</span><br><span class="line">            select = <span class="variable language_">self</span>.comboBox.currentIndex()</span><br><span class="line">            select = <span class="built_in">int</span>(select)</span><br><span class="line">            jpgfunc.Transpose(<span class="variable language_">self</span>.filename,select)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_7.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;手绘转换开始&quot;</span>)</span><br><span class="line">            jpgfunc.Draw(<span class="variable language_">self</span>.filename)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_8.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;模糊转换开始&quot;</span>)</span><br><span class="line">            cnt = <span class="variable language_">self</span>.textEdit_23.toPlainText()</span><br><span class="line">            cnt = <span class="built_in">int</span>(cnt)</span><br><span class="line">            jpgfunc.Dim(<span class="variable language_">self</span>.filename,cnt)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.radioButton_9.isChecked(): </span><br><span class="line">            <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;黑白转换开始&quot;</span>)</span><br><span class="line">            jpgfunc.Covert(<span class="variable language_">self</span>.filename)</span><br><span class="line">        <span class="variable language_">self</span>.statusBar.showMessage(<span class="string">&quot;处理完毕&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    app = QtWidgets.QApplication(sys.argv)</span><br><span class="line">    mainWindow = MainWindow()</span><br><span class="line">    mainWindow.show()</span><br><span class="line"></span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
+
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <!-- <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div> -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2024/12/24/python/file/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            python文件
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2024/12/24/python/requirements/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">requirements.txt</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+    
+</article>
+
+</section>
+      <!-- <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2024
+        <i class="ri-heart-fill heart_icon"></i> GX
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>     -->
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="gx的博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/me">关于</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+ 
+<script src="/js/clickBoom2.js"></script>
+ 
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
