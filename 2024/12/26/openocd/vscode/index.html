@@ -111,8 +111,8 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="vscode配置"><a href="#vscode配置" class="headerlink" title="vscode配置"></a>vscode配置</h1><h2 id="配置用户任务（下拉菜单）"><a href="#配置用户任务（下拉菜单）" class="headerlink" title="配置用户任务（下拉菜单）"></a>配置用户任务（下拉菜单）</h2><p>1-tasks.json干啥用的<br>在这里（ Tasks in Visual Studio Code）了解关于tasks.json的作用，简单来说，就是vscode设计的专门配置如何调用外部功能的接口，因为这些外部的功能如make, lint等是开发环节中的重要部分，而且大部分是命令行式的。这一段所描述的所有内容都可以在这个链接里找到，建议认真阅读原文，要查看具体字段如”group”使用说明可以直接在网页里搜索。再简单来说，有了tasks.json就可以配置用户自己的下接菜单。</p>
-<p>2-如何创建tasks.json？<br>有两个方法，一、手动自己创建.vscode&#x2F;tasks.json, 因为文件内容比较简单所以完全可以自己创建，省得记忆下面提到创建方法路径， 二、菜单的Terminal-&gt;configure tasks… 或者用CTRL+P 弹出输入框，输入‘&gt;Task’列表显示一堆，选择“Tasks:Config Task”继续选择Creat tasks.json file from template 。 这里差别不大，因为我们只是要一个文件，然后里面内容删掉重写。</p>
+  <h1 id="vscode配置"><a href="#vscode配置" class="headerlink" title="vscode配置"></a>vscode配置</h1><h2 id="配置用户任务（下拉菜单）"><a href="#配置用户任务（下拉菜单）" class="headerlink" title="配置用户任务（下拉菜单）"></a>配置用户任务（下拉菜单）</h2><p>1-tasks.json<br>在这里（ Tasks in Visual Studio Code）了解关于tasks.json的作用，简单来说，就是vscode设计的专门配置如何调用外部功能的接口，因为这些外部的功能如make, lint等是开发环节中的重要部分，而且大部分是命令行式的。这一段所描述的所有内容都可以在这个链接里找到，建议认真阅读原文，要查看具体字段如”group”使用说明可以直接在网页里搜索。再简单来说，有了tasks.json就可以配置用户自己的下接菜单。</p>
+<p>2-创建tasks.json<br>有两个方法，一、手动自己创建.vscode&#x2F;tasks.json, 因为文件内容比较简单所以完全可以自己创建，省得记忆下面提到创建方法路径， 二、菜单的Terminal-&gt;configure tasks… 或者用CTRL+P 弹出输入框，输入‘&gt;Task’列表显示一堆，选择“Tasks:Config Task”继续选择Creat tasks.json file from template 。 这里差别不大，因为我们只是要一个文件，然后里面内容删掉重写。</p>
 <p> 3-tasks.json的文件编辑<br>针对stm32开发的用到的功能只是tasks.json中很简单的一块，这里一共定义了6个task，分别说明如下，</p>
 <p>调用make指令执行编译，实际执行的命令行是‘make all -j4’调用4核全力执行</p>
 <p>调用make指令执行清理工程，实际执行‘make clean’,删除build目录及内容</p>
@@ -162,19 +162,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2024/12/26/openocd/openocd/" class="article-nav-link">
+      <a href="/2024/12/26/openocd/pyocd/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            OpenOCD
+            pyocd
           
         </div>
       </a>
     
     
-      <a href="/2024/12/26/python/Matplotlib/" class="article-nav-link">
+      <a href="/2024/12/26/openocd/RTT_Viewer/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Matplotlib</div>
+        <div class="article-nav-title">RTT Viewer</div>
       </a>
     
   </nav>
@@ -264,7 +264,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/me">关于我</a>
+      <a class="nav-item-link" href="/me">关于</a>
     </li>
     
   </ul>

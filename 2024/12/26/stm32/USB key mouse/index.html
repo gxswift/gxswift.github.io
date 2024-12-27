@@ -120,7 +120,14 @@
 
 
 
-<p>   通过上面的分析，我们知道这个报告中只有一个报告，所以没有报告ID，<br>因此返回的都是实际使用的数据。总共有8字节输入，1字节输出。其中输入的<br>第一字节用来表示特殊按键，第二字节保留，后面的六字节为普通按键。如果<br>只有左ctrl键按下，则返回01 00 00 00 00 00 00 00（十六进制），如果<br>只有数字键1 按下，则返回00 00 59 00 00 00 00 00，如果数字<br>键1 和2 同时按下，则返回00 00 59 5A 00 00 00 00，如果<br>再按下左shift 键，则返回02 00 59 5A 00 00 00 00，<br>然后再释放1   键，则返回02 00 5A 00 00 00 00 00，<br>然后全部按键释放，则返回00 00 00 00 00 00 00 00。<br>这些数据（即报告）都是通过中断端点返回的。当按下Num Lock键时，PC会发送<br>输出报告，从报告描述符中我们知道，Num Lock的LED对应着输出报告的最低位，<br>当数字小键盘打开时，输出xxxxxxx1（二进制，打x的由其它的LED状态决定）；<br>当数字小键盘关闭时，输出xxxxxxx0（同前）。取出最低位就可以控制数字键锁定LED了。</p>
+<p>   通过上面的分析，我们知道这个报告中只有一个报告，所以没有报告ID，<br>因此返回的都是实际使用的数据。总共有8字节输入，1字节输出。其中输入的<br>第一字节用来表示特殊按键，第二字节保留，后面的六字节为普通按键。</p>
+<p>如果只有左ctrl键按下，则返回01 00 00 00 00 00 00 00（十六进制），</p>
+<p>如果只有数字键1 按下，则返回00 00 59 00 00 00 00 00，</p>
+<p>如果数字键1 和2 同时按下，则返回00 00 59 5A 00 00 00 00，</p>
+<p>如果再按下左shift 键，则返回02 00 59 5A 00 00 00 00，</p>
+<p>然后再释放1   键，则返回02 00 5A 00 00 00 00 00，</p>
+<p>然后全部按键释放，则返回00 00 00 00 00 00 00 00。</p>
+<p>这些数据（即报告）都是通过中断端点返回的。当按下Num Lock键时，PC会发送<br>输出报告，从报告描述符中我们知道，Num Lock的LED对应着输出报告的最低位，<br>当数字小键盘打开时，输出xxxxxxx1（二进制，打x的由其它的LED状态决定）；<br>当数字小键盘关闭时，输出xxxxxxx0（同前）。取出最低位就可以控制数字键锁定LED了。</p>
  
       <!-- reward -->
       
@@ -151,19 +158,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2024/12/26/stm32/USB/" class="article-nav-link">
+      <a href="/2024/12/26/stm32/assert/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            stm32 USB
+            编译断言
           
         </div>
       </a>
     
     
-      <a href="/2024/12/26/stm32/assert/" class="article-nav-link">
+      <a href="/2024/12/26/stm32/dump/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">编译断言</div>
+        <div class="article-nav-title">objdump</div>
       </a>
     
   </nav>
@@ -253,7 +260,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/me">关于我</a>
+      <a class="nav-item-link" href="/me">关于</a>
     </li>
     
   </ul>

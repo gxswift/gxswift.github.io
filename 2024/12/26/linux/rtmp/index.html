@@ -79,7 +79,7 @@
   <time datetime="2024-12-26T01:43:25.000Z" itemprop="datePublished">2024-12-26</time>
 </a> 
   <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
+    <a class="article-category-link" href="/categories/linux/">linux</a> / <a class="article-category-link" href="/categories/linux/nginx/">nginx</a>
   </div>
   
 <div class="word_count">
@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">247</span>
+            <span class="post-count">355</span>
         </span>
     </span>
 
@@ -123,6 +123,8 @@
 <ul>
 <li>拉流<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffplay rtmp://192.168.1.49:1935/live</span><br></pre></td></tr></table></figure></li>
 </ul>
+<h2 id="web服务器"><a href="#web服务器" class="headerlink" title="web服务器"></a>web服务器</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># 设置http服务器</span><br><span class="line">http &#123;</span><br><span class="line">    # 设置日志格式</span><br><span class="line">    access_log  /var/log/nginx/access.log;</span><br><span class="line">    error_log  /var/log/nginx/error.log;</span><br><span class="line"> </span><br><span class="line">    # 设置服务器名和文件根目录</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        # 服务器名，可不要</span><br><span class="line">        server_name  localhost;</span><br><span class="line"> </span><br><span class="line">        # 定义请求的根目录</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /usr/share/nginx/html;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        # 处理404页面</span><br><span class="line">        error_page  404              /404.html;</span><br><span class="line">        location = /40x.html &#123;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        # 处理500页面</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
  
       <!-- reward -->
       
@@ -153,19 +155,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2024/12/26/linux/raspberrypi/" class="article-nav-link">
+      <a href="/2024/12/26/linux/sqlite/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            树莓派
+            sqlite
           
         </div>
       </a>
     
     
-      <a href="/2024/12/26/linux/sqlite/" class="article-nav-link">
+      <a href="/2024/12/26/linux/ssh/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">sqlite</div>
+        <div class="article-nav-title">ssh和git</div>
       </a>
     
   </nav>
@@ -255,7 +257,7 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-item-link" href="/me">关于我</a>
+      <a class="nav-item-link" href="/me">关于</a>
     </li>
     
   </ul>
