@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">202</span>
+            <span class="post-count">251</span>
         </span>
     </span>
 
@@ -123,6 +123,8 @@
 <li>添加以下内容（替换为你的 Wi-Fi 信息）：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">network=&#123; ssid=&quot;你的Wi-Fi名称&quot; psk=&quot;你的Wi-Fi密码&quot; key_mgmt=WPA-PSK &#125;</span><br></pre></td></tr></table></figure></li>
 <li>重启网络服务<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo wpa_cli -i wlan0 reconfigure</span><br></pre></td></tr></table></figure></li>
 </ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 修改ip</span><br><span class="line">sudo ifconfig wlan0 192.168.50.16</span><br><span class="line"># 重启网络服务的命令可能因系统而异。在某些系统上，可以使用以下命令来重启dhcpcd服务</span><br><span class="line">sudo systemctl restart dhcpcd</span><br></pre></td></tr></table></figure>
+
 <h2 id="时区"><a href="#时区" class="headerlink" title="时区"></a>时区</h2><p>输入以下命令查看可用时区列表：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">timedatectl list-timezones</span><br><span class="line">timedatectl list-timezones | grep Asia</span><br></pre></td></tr></table></figure>
 <p>找到您想要设置的时区，然后使用以下命令进行设置，将Europe&#x2F;Berlin替换为您的时区：</p>
@@ -162,19 +164,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2024/12/24/linux/lib/" class="article-nav-link">
+      <a href="/2024/12/24/blog/blog/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            gcc库
+            Hexo 博客搭建
           
         </div>
       </a>
     
     
-      <a href="/2024/12/24/linux/lvgl_linux/" class="article-nav-link">
+      <a href="/2024/12/24/linux/sqlite/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">lvgl仿真</div>
+        <div class="article-nav-title">sqlite</div>
       </a>
     
   </nav>
