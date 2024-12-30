@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">253</span>
+            <span class="post-count">873</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1 分钟</span>
+            <span class="post-count">3 分钟</span>
         </span>
     </span>
 </div>
@@ -117,6 +117,7 @@
 <li>建立文件夹，设置权限<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /nfsroot</span><br><span class="line">sudo chmod -R 777 /nfsroot</span><br><span class="line">sudo chown -R nobody /nfsroot</span><br></pre></td></tr></table></figure></li>
 <li>启动NFS服务<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nfs-kernel-server start #重启restart</span><br></pre></td></tr></table></figure></li>
 <li>客户端挂载<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t nfs -o vers=4 192.168.123.123:/nfs /mnt -o nolock</span><br></pre></td></tr></table></figure></li>
+<li>卸载<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h2 id="TFTP"><a href="#TFTP" class="headerlink" title="TFTP"></a>TFTP</h2><h3 id="tftpd或xinetd"><a href="#tftpd或xinetd" class="headerlink" title="tftpd或xinetd"></a>tftpd或xinetd</h3><ol>
 <li>安装软件包<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install tftpd-hpa tftp-hpa	<span class="comment">#安装服务器和客户端</span></span><br></pre></td></tr></table></figure></li>
@@ -124,6 +125,46 @@
 <li>建立文件夹，设置权限<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> /tftp</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> -R 777 /tftp</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chown</span> -R nobody /tftp</span><br></pre></td></tr></table></figure></li>
 <li>启动NFS服务<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> service tftpd-hpa start <span class="comment">#重启restart</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> service xinetd start</span><br></pre></td></tr></table></figure></li>
 <li>客户端挂载<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;tftp ip#连接</span><br><span class="line">&gt;get file#下载</span><br><span class="line">&gt;put file#上传</span><br><span class="line">&gt;q#退出</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="SAMBA"><a href="#SAMBA" class="headerlink" title="SAMBA"></a>SAMBA</h2><p>windows常用的共享文件夹服务</p>
+<ol>
+<li>安装服务</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install samba</span><br></pre></td></tr></table></figure>
+<p>如果不小心删除了配置文件，可以通过：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt purge samba-common samba</span><br><span class="line">sudo apt install samba</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>创建samba用户<br>samba使用Linux的用户和权限系统，但是有自己的认证机制。<br>samba用户首先要是一个Linux用户，不然是创建不成功的。<br>创建一个Linux用户</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd -s /bin/bash -m username</span><br></pre></td></tr></table></figure>
+<p>-m 是在home目录自动创建一个username目录<br>创建一个smb用户sudo smbpasswd -a username<br>手动输入两遍密码即可,其他操作可以通过smbpass -h查看创建共享目录 使用username用户在家目录创建一个共享目录mkdir samba</p>
+</li>
+<li><p>修改配置</p>
+</li>
+</ol>
+<p>vim &#x2F;etc&#x2F;samba&#x2F;smb.conf<br>保证 server role 是 standalone server（默认情况下就是如此）server role &#x3D; standalone server添加共享配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[samba]</span><br><span class="line">    path = /home/username/samba</span><br><span class="line">    browseable = yes</span><br><span class="line">    read only = no</span><br><span class="line">#    force create mode = 0660</span><br><span class="line">#    force directory mode = 2770</span><br><span class="line">    valid users = username</span><br><span class="line"></span><br><span class="line"># 下面是一个匿名只读配置</span><br><span class="line">[share]</span><br><span class="line">    path = /mnt/samba</span><br><span class="line">    browsable =yes</span><br><span class="line">    writable = no</span><br><span class="line">    guest ok = yes</span><br><span class="line">    read only = yes</span><br></pre></td></tr></table></figure>
+<pre><code>全局设置
+workgroup：此选项设置了Samba服务器所属的工作组或域名，如workgroup = WORKGROUP。
+server string：这是Samba服务器的简短描述，例如server string = %h server (Samba,Ubuntu)。
+security：设置安全模式，常见的模式有share、user、server、domain和ads。例如security = user指定需要用户名和密码才能访问共享资源。
+passdb backend：定义用户密码数据库的后端类型，如passdb backend = tdbsam表示使用TDB数据库来存储用户验证信息。
+encrypt passwords：此选项控制是否对密码进行加密，为了与现代Windows系统兼容通常设置为yes。
+
+共享定义
+comment：为共享资源添加描述性注释，如comment = Public Share。
+path：指定共享资源的完整路径，如path = /home/public。
+browseable：此选项设置共享是否可以在网络邻居中被浏览，如browseable = yes。通过设置为no，其他用户将看不到共享。
+guest ok：设置是否允许匿名访问共享，如guest ok = no表示禁止匿名访问。
+valid users：指定允许访问共享资源的用户或组，如valid users = @tech, manager。
+read only：控制共享资源是否为只读，如read only = yes表示共享目录只能读取不可写入。
+</code></pre>
+<ol start="4">
+<li><p>重新启动Samba服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart nmbd.service</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>windows删除远程连接<br>弹窗<code>不允许一个用户使用一个以上用户名与服务器</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net use * /del /y</span><br></pre></td></tr></table></figure></li>
 </ol>
  
       <!-- reward -->
@@ -155,19 +196,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2024/12/24/linux/ssh/" class="article-nav-link">
+      <a href="/2024/12/24/linux/sqlite/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            ssh和git
+            sqlite
           
         </div>
       </a>
     
     
-      <a href="/2024/12/24/linux/rtmp/" class="article-nav-link">
+      <a href="/2024/12/24/linux/vim/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">RTMP</div>
+        <div class="article-nav-title">VIM</div>
       </a>
     
   </nav>
