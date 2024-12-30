@@ -114,9 +114,9 @@
   <h2 id="网页禁止复制解除"><a href="#网页禁止复制解除" class="headerlink" title="网页禁止复制解除"></a>网页禁止复制解除</h2><p>win: 在控制台F12页面Sources 快捷键 ctrl+shift+p 然后输入 javascript 找到 disabled javaScript.</p>
 <h2 id="切换到旧版右键菜单："><a href="#切换到旧版右键菜单：" class="headerlink" title="切换到旧版右键菜单："></a>切换到旧版右键菜单：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg add &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;\InprocServer32&quot; /f /ve</span><br></pre></td></tr></table></figure>
 
-<h2 id="恢复回Win11右键菜单："><a href="#恢复回Win11右键菜单：" class="headerlink" title="恢复回Win11右键菜单："></a>恢复回Win11右键菜单：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg delete &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;&quot; /f</span><br></pre></td></tr></table></figure>
+<h2 id="恢复回Win11右键菜单"><a href="#恢复回Win11右键菜单" class="headerlink" title="恢复回Win11右键菜单:"></a>恢复回Win11右键菜单:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg delete &quot;HKCU\Software\Classes\CLSID\&#123;86ca1aa0-34aa-4e8b-a509-50c905bae2a2&#125;&quot; /f</span><br></pre></td></tr></table></figure>
 
-<h2 id="重启Windows资源管理器生效："><a href="#重启Windows资源管理器生效：" class="headerlink" title="重启Windows资源管理器生效："></a>重启Windows资源管理器生效：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /f /im explorer.exe &amp; start explorer.exe</span><br></pre></td></tr></table></figure> 
+<h2 id="重启Windows资源管理器生效"><a href="#重启Windows资源管理器生效" class="headerlink" title="重启Windows资源管理器生效:"></a>重启Windows资源管理器生效:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /f /im explorer.exe &amp; start explorer.exe</span><br></pre></td></tr></table></figure> 
       <!-- reward -->
       
     </div>
@@ -146,19 +146,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2024/12/24/vscode/setting.json/" class="article-nav-link">
+      <a href="/2024/12/24/stm32/ws2812/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            vscode doxygen
+            ws2812
           
         </div>
       </a>
     
     
-      <a href="/2023/12/26/blog/grammer/" class="article-nav-link">
+      <a href="/2024/12/24/vscode/setting.json/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">markdown语法</div>
+        <div class="article-nav-title">vscode doxygen</div>
       </a>
     
   </nav>
