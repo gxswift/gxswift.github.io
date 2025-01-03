@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">440</span>
+            <span class="post-count">461</span>
         </span>
     </span>
 
@@ -111,16 +111,28 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="FFMPEG录屏"><a href="#FFMPEG录屏" class="headerlink" title="FFMPEG录屏"></a>FFMPEG录屏</h1><p>使用 FFMpeg录屏通常有两种方式：</p>
+  <h1 id="FFMPEG录屏"><a href="#FFMPEG录屏" class="headerlink" title="FFMPEG录屏"></a>FFMPEG录屏</h1><h2 id="方式"><a href="#方式" class="headerlink" title="方式"></a>方式</h2><p>使用 FFMpeg录屏通常有两种方式：</p>
 <ol>
 <li>基于 gdigrab (使用CPU录制)</li>
 <li>基于 DirectShow （使用显卡录制）</li>
 </ol>
 <p><code>gdigrab</code>方式实现更简单，更轻量，兼容性也更好。<code>DirectShow</code>方案需要额外下载 <code>screen-capture-recorder</code></p>
 <p>基于该方法，主要核心就是 ffmpeg的命令编写，具体命令如下：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f gdigrab -framerate 30 -offset_x 0 -offset_y 0 -video_size 1920x1080 -i desktop -r 30 -vcodec libx264 -pix_fmt yuv420p -y <span class="string">&quot;output.mp4&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -f gdigrab -framerate 30 -offset_x 0 -offset_y 0 -video_size 1920x1080 -i desktop -r 30 -vcodec libx264 -pix_fmt yuv420p -t 5 -y <span class="string">&quot;output.mp4&quot;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//注意：ffmpeg 的命令输入，也需要考虑输入顺序的。先指定输入参数，再指定输出参数。</span><br><span class="line">    // -f 表示指定文件格式或采集数据的设备，如果是 DirectShow 方案，就需要指定为 screen-capture-recorder。    </span><br><span class="line">    //对于输入，如果不指定-f,ffmpeg 会根据输入数据，来判断数据的封装格式.    </span><br><span class="line">    //对于输出，如果不指定-f,ffmpeg 也可以通过输出文件名进行推导.    </span><br><span class="line">//ffmpeg -formats 可以列出所有的formats</span><br><span class="line">// -framerate 指定录制的视频帧率</span><br><span class="line">// -offset_x -offset_y 指定录制的区域左上角坐标</span><br><span class="line">// -video_size 指定录制的视频尺寸</span><br><span class="line">// -i 指定从哪儿采集数据，它是一个文件索引号。这里是指定输入的视频源。（i 表示input，不一定是表示视频文件，表示输入。如也可以是音频文件输入等）</span><br><span class="line">// -r 指定帧率</span><br><span class="line">// -vcodec 指定编码格式。libx264 这种格式录制出来的视频，清晰度更清晰，占用的文件大小更小，推荐使用。</span><br><span class="line">// -pix_fmt 像素格式，常规使用yuv420p</span><br><span class="line">// -y 表示强制覆盖，如果输出文件已经存在，就覆盖输出文件路径。这里需要注意下：输出文件路径带上 双引号 ，防止不合法路径将命令拆分了。</span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>ffmpeg 的命令输入，也需要考虑输入顺序的。先指定输入参数，再指定输出参数。</p>
+<ul>
+<li>-f 表示指定文件格式或采集数据的设备，如果是 DirectShow 方案，就需要指定为 screen-capture-recorder。<br>对于输入，如果不指定-f,ffmpeg 会根据输入数据，来判断数据的封装格式.<br>对于输出，如果不指定-f,ffmpeg 也可以通过输出文件名进行推导.<br><code>ffmpeg -formats</code>可以列出所有的formats</li>
+<li>-framerate 指定录制的视频帧率</li>
+<li>-offset_x -offset_y 指定录制的区域左上角坐标</li>
+<li>-video_size 指定录制的视频尺寸</li>
+<li>-i 指定从哪儿采集数据，它是一个文件索引号。这里是指定输入的视频源。（i 表示input，不一定是表示视频文件，表示输入。如也可以是音频文件输入等）</li>
+<li>-r 指定帧率</li>
+<li>-vcodec 指定编码格式。libx264 这种格式录制出来的视频，清晰度更清晰，占用的文件大小更小，推荐使用。</li>
+<li>-pix_fmt 像素格式，常规使用yuv420p</li>
+<li>-t 时间，秒。如果不配置，可以在命令框按q退出</li>
+<li>-y 表示强制覆盖，如果输出文件已经存在，就覆盖输出文件路径。这里需要注意下：输出文件路径带上 双引号 ，防止不合法路径将命令拆分了。</li>
+</ul>
  
       <!-- reward -->
       
@@ -151,19 +163,19 @@
    
   <nav class="article-nav">
     
-      <a href="/2024/12/24/esp8266/espidf/" class="article-nav-link">
+      <a href="/2024/12/24/linux/ffmpeg/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
-            ESP-IDF
+            FFMPEG常用命令
           
         </div>
       </a>
     
     
-      <a href="/2024/12/24/esp8266/cap/" class="article-nav-link">
+      <a href="/2024/12/24/linux/gitattributes/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">强制网络门户</div>
+        <div class="article-nav-title">gitattributes</div>
       </a>
     
   </nav>
